@@ -17,6 +17,7 @@
 
         //MODEL
         trykkpå = "";
+        ingen = "";
         folka = ["Ben", "Thomas", "Daniel", "Tony", "Vinny"]
 
         //VIEW
@@ -42,7 +43,13 @@
         //controller
 
         function klikk(index){
-            trykkpå = `Du har trykka på : ${folka[index]}! `
+            //trykkpå = `Du har trykka på : ${folka[index]}! `
+            //trykkpå = ingen === trykkpå ? `Du har valgt : ${folka[index]}! ` : ingen;
+            if( trykkpå == "Du har valgt : " + folka[index] ){
+                trykkpå = ingen
+            } else {
+                trykkpå = "Du har valgt : " + folka[index];
+            }
             show();
         }
            
