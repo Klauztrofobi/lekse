@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>Navn Oppgave!</title>
     </head>
     <body>
 
@@ -28,16 +28,24 @@
             html += `${header()}`
             
             for(let i = 0; i < folka.length; i++){
+                html += `<br>`
                 html += `<div onclick = "klikk(${i})"> ${folka[i]} </div>`
+                html += `<div onclick = "fjern(${i})"> Fjern Navn! </div>`
+                html += `<div onclick = "endre(${i})"> Nytt Navn! </div>`
             }
 
+            html += `<br>`
             html += `<div> ${trykkpå} </div>`
+            html += `<br>`
+            html += `<input oninput="add = this.value"> <button onclick="addfolk()">Add folk</button>`
+            html += `<br>`
+            html += `<button onclick="reset()">Reset</button>`
             document.getElementById("app").innerHTML = html;
 
         }
 
         function header(){
-            return `<h2> Oppgave med Navn </h2>`
+            return `<h2> Oppgave med Navn! </h2>`
         }
 
         //controller
@@ -52,7 +60,28 @@
             }
             show();
         }
-           
-           </script>
+        
+        function addfolk() {
+            folka.push(add);
+            show();
+        }
+
+        function reset(index){
+            folka = ["Ben", "Thomas", "Daniel", "Tony", "Vinny"];
+            trykkpå = "";
+            show();
+        }
+
+        function fjern(index){
+            folka.splice(index, 1);
+            show();
+        }
+
+        function endre(index) {
+            folka[index] = add;
+            show();
+        }
+        
+        </script>
     </body>
 </html>
